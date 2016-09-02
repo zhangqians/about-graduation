@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	
+	<title>收藏区</title>
+	<style type="text/css">
+	body{
+	background-color:rgb(232, 226, 242);
+	
+}
+
+h1{
+	text-align:center;
+	background-image:linear-gradient( top right, red,yellow,green,blue);
+}
+
+#container{
+	width:1100px; 
+	height:450px; 
+	margin:60px auto; 
+	position:relative;
+}
+
+#container img{
+	padding:10px 10px 15px; 
+	background:white; 
+	border:1px solid #ddd; 
+	box-shadow:2px 2px 3px rgba(50, 50, 50, 0.4);
+	-webkit-transition:all 0.5s ease-in;
+	-moz-transition:all 0.5s ease-in;
+	transition:all 0.5s ease-in; 
+	position:absolute; 
+	z-index:1;
+}
+
+#container img:hover{
+	box-shadow:15px 15px 20px rgba(50, 50, 50, 0.4); 
+	-webkit-transform:rotate(0deg) scale(1.20); 
+	-moz-transform:rotate(0deg) scale(1.20); 
+	transform:rotate(0deg) scale(1.20); 
+	z-index:2;
+}
+
+
+.albums-tab-thumb{
+	float: left;
+	width: 300px;
+	height: 200px;
+}
+.albums-tab-thumb img {
+	height: auto;
+	width: 290px;
+	background-color: rgba(255,255,255,1);
+	padding: 5px;		
+}
+
+
+.pic3
+{
+	top: 0; 
+	left: 400px; 
+	-webkit-transform: rotate(20deg); 
+	-moz-transform: rotate(20deg); 
+	transform: rotate(20deg);
+}
+	
+.pic4
+{
+	top:0; 
+	left:650px; 
+	-webkit-transform: rotate(-10deg); 
+	-moz-transform: rotate(-10deg); 
+	transform: rotate(-10deg);
+}
+
+.pic5
+{
+	top: 0; 
+	left: 900px; 
+	-webkit-transform: rotate(-10deg); 
+	-moz-transform: rotate(-10deg); 
+	transform: rotate(-10deg);
+}
+
+.pic6
+{
+	top: 350px; 
+	left:0; 
+	-webkit-transform: rotate(10deg); 
+	-moz-transform: rotate(10deg); 
+	transform: rotate(10deg);
+}
+
+.pic7
+{
+	top: 350px; 
+	left: 100px; 
+	-webkit-transform: rotate(-20deg); 
+	-moz-transform: rotate(-20deg); 
+	transform: rotate(-20deg);
+}
+
+.pic8
+{
+	top:400px; 
+	right: 400px; 
+	-webkit-transform: rotate(5deg); 
+	-moz-transform: rotate(5deg); 
+	transform: rotate(5deg);
+}
+
+.pic9
+{
+	top: 350px; 
+	left: 600px; 
+	-webkit-transform: rotate(15deg); 
+	-moz-transform: rotate(15deg); 
+	transform: rotate(15deg);
+}
+
+.pic10
+{
+	left:900px; 
+	top:350px; 
+	-webkit-transform: rotate(-10deg); 
+	-moz-transform: rotate(-10deg); 
+	transform: rotate(-10deg);
+}
+
+
+.sim-anim-9{
+	position: relative;
+	-webkit-perspective: 500px; 
+    perspective: 500px;
+	
+	}	
+.sim-anim-9 img{
+	position: absolute;
+	-webkit-transition: all 0.5s ;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	}
+.sim-anim-9:hover img{
+	z-index: 1;
+	}
+.sim-anim-9:hover img:nth-child(1){
+     -ms-transform: translate(0,75%) scale(0.7,0.7) rotateX(10deg);
+   	-webkit-transform: translate(0,75%)  scale(0.7,0.7) rotateX(10deg);  
+    transform: translate(0,75%)  scale(0.7,0.7) rotateX(10deg);
+	
+	}	
+.sim-anim-9:hover img:nth-child(2){
+     -ms-transform: translate(72%,75%) scale(0.7,0.7) rotateX(10deg);
+   	-webkit-transform: translate(72%,75%)  scale(0.7,0.7) rotateX(10deg);  
+    transform: translate(72%,75%)  scale(0.7,0.7) rotateX(10deg);
+	}		
+.sim-anim-9:hover img:nth-child(3){
+     -ms-transform: translate(-72%,75%) scale(0.7,0.7) rotateX(10deg);
+   	-webkit-transform: translate(-72%,75%)  scale(0.7,0.7) rotateX(10deg);  
+    transform: translate(-72%,75%)  scale(0.7,0.7) rotateX(10deg);
+
+	}	
+.sim-anim-9:hover img:nth-child(4){
+    -ms-transform: translate(-72%,0) scale(0.7,0.7) rotateX(10deg);
+   	-webkit-transform: translate(-72%,0)  scale(0.7,0.7) rotateX(10deg);  
+    transform: translate(-72%,0)  scale(0.7,0.7) rotateX(10deg); 
+	  
+	}		
+.sim-anim-9:hover img:nth-child(5){
+    -ms-transform: translate(72%,0) scale(0.7,0.7) rotateX(10deg);
+   	-webkit-transform: translate(72%,0)  scale(0.7,0.7) rotateX(10deg);  
+    transform: translate(72%,0)  scale(0.7,0.7) rotateX(10deg);
+ 
+	}	
+.sim-anim-9:hover img:nth-child(6){
+    -ms-transform: translate(72%,-70%) scale(0.7,0.7) rotateX(10deg);
+   	-webkit-transform: translate(72%,-70%)  scale(0.7,0.7) rotateX(10deg);  
+    transform: translate(72%,-70%)  scale(0.7,0.7) rotateX(10deg); 
+	
+	}	
+.sim-anim-9:hover img:nth-child(7){
+    -ms-transform: translate(-72%,-70%)  scale(0.7,0.7) rotateX(10deg);  
+   	-webkit-transform: translate(-72%,-70%)  scale(0.7,0.7) rotateX(10deg);  
+    transform: translate(-72%,-70%)  scale(0.7,0.7) rotateX(10deg); 
+	
+	}		
+.sim-anim-9:hover img:nth-child(8){
+    -ms-transform: translate(0,-70%) scale(0.7,0.7) rotateX(10deg); 
+   	-webkit-transform: translate(0,-70%) scale(0.7,0.7) rotateX(10deg);
+    transform: translate(0,-70%) scale(0.7,0.7) rotateX(10deg);
+ 
+	}	
+.sim-anim-9:hover img:nth-child(9){
+    -ms-transform: scale(0.7,0.7) rotateX(10deg); 
+   	-webkit-transform:scale(0.7,0.7) rotateX(10deg);
+    transform: scale(0.7,0.7) rotateX(10deg); 
+	}	
+	a{
+		color:red;
+		}
+		a:hover
+		{
+			color:blue;
+			}
+	</style>
+    
+</head>
+
+<body>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+您当前所在位置->首页->青春修炼手册->收藏区</span>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span>点击返回&nbsp;&nbsp;&nbsp;<a href="link5.html">青春修炼手册</a></span>
+	<h1>时光里的成长烙印</h1>
+	<div id="container">
+    <div class="albums-tab-thumb sim-anim-9">
+        <img src="images/11.jpg" class="all studio"/>
+        <img src="images/12.jpg" class="all studio"/>
+        <img src="images/13.jpg" class="all studio"/>
+        <img src="images/14.jpg" class="all studio"/>
+        <img src="images/15.jpg" class="all studio"/>
+        <img src="images/16.jpg" class="all studio"/>
+        <img src="images/17.jpg" class="all studio"/>
+        <img src="images/18.jpg" class="all studio"/>
+        <img src="images/19.jpg" class="all studio"/>
+    </div>
+	  <!--  <img class="pic pic1" src="image/touxiang.jpg">
+		<img class="pic pic2" src="image/touxiang1.jpg">-->
+		<img class="pic pic3" src="image2/1.jpg">
+		<img class="pic pic4" src="image2/2.jpg">
+		<img class="pic pic5" src="image2/3.jpg">
+		<img class="pic pic6" src="image2/touxing5.jpg">
+		<img class="pic pic7" src="image2/4.jpg">
+		<img class="pic pic8" src="image2/5.jpg">
+		<img class="pic pic9" src="image2/6.jpg">
+		<img class="pic pic10" src="image2/7.jpg">
+	</div>
+
+</body>
+</html>

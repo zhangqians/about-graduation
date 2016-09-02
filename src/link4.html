@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>最初的梦想</title>
+<style type="text/css">
+
+
+.roll{
+width:1000px;height:68px; margin:10px auto 0;position: relative;
+}
+.roll .btn_left
+{
+width:70px; height:68px;background:url(image/btn.jpg)no-repeat -70px -69px; position:absolute; top:30px;left:1px;z-index: 1;
+}
+.roll .btn_left:hover
+{
+background: url(image/btn.jpg) no-repeat -70px 0;display: block;
+}
+.roll .btn_right
+{
+display:block; width:70px; height:68px;background: url(image/btn.jpg) no-repeat 1px -69px; position:absolute; top:30px;right:0; z-index: 1; 
+}
+ .roll .btn_right:hover
+ {
+ background: url(image/btn.jpg)no-repeat 1px 0;
+ }
+ .roll .wrap
+ {
+ width:728px; height:108px;margin:0 auto;position: relative;overflow: hidden;
+ }
+.roll ul
+{
+position:absolute; top:0;left:0;
+}
+.roll li
+{
+	list-style:none;
+float:left; width:182px; height: 108px;text-align: center;
+}
+.roll li:hover
+{
+position:relative;top:2px;
+}
+p1
+{
+	font-size:15px;
+	}
+a{
+		color:red;
+		}
+a:hover{
+	color:blue;
+	}
+span1
+{
+	color:red;
+	}
+span
+{
+	font-size:1.2em;
+	letter-spacing:7px;
+	}
+em{
+	    font-size:1.2em;
+		letter-spacing:7px;
+		}
+#go1
+{
+	height:1100px;
+     width:100%;
+	
+	 	
+	}
+#go2
+{
+	height:250px;
+     width:100%;
+	 background-size:cover;
+	 background:url(link4/ji2.jpg) no-repeat center;
+	 	
+	}
+	#go3
+{
+	height:200px;
+     width:100%;
+	
+	 position:absolute;
+	 top:1200px;
+	}
+	#go4
+{
+	height:650px;
+     width:45%;
+	 padding-left:10px;
+     padding-right:10px;
+	 padding-top:10px;
+	 position:absolute;
+	 left:10px;
+	 top:280px;
+	border:1px solid black;
+	}
+	img{
+		float:left;
+		margin-left:10px;
+		margin-right:10px;
+	}
+		
+	#go5
+{
+	height:770px;
+     width:49%;
+	  background:url(link4/ji6.jpg) no-repeat center;
+     padding-left:10px;
+	 padding-right:10px;
+	 position:absolute;
+	 right:20px;
+	 top:400px;
+	 border:1px solid black;
+	}
+	#go6
+{
+	height:130px;
+     width:50%;
+background:url(link4/zhi.jpg) no-repeat center;
+	 position:absolute;
+	 right:20px;
+	 top:260px;	
+	 
+	}
+	#go7
+{
+	height:120px;
+     width:45%;
+background:url(link4/zhi11.jpg) no-repeat center;
+	 position:absolute;
+	 left:25px;
+	 top:1000px;	
+	}
+</style>
+<script type="text/javascript">
+            /*滚轮函数*/
+            var g_bMoveLeft=true;
+            var g_oTimer=null;
+            var g_oTimerOut=null;
+
+            var g_bPause=true;
+            var g_iPauseTime=1000;
+            var g_iSpeed=2;
+
+            window.onload=function(){
+            	var oDiv=document.getElementById('roll');
+            	var oUl=oDiv.getElementsByTagName('ul')[0];
+            	var aLi=oUl.getElementsByTagName("li");
+            	var aA=oDiv.getElementsByTagName("a");
+
+            	var oChk=document.getElementById("chk_pause");
+            	var oPauseTime=document.getElementById("pause_time");
+            	var oSpeed=document.getElementById("sel_speed");
+                
+            	var i=0;
+            	var str=oUl.innerHTML+oUl.innerHTML;
+            	oUl.innerHTML=str;
+
+            	oUl.style.width=aLi[0].offsetWidth*aLi.length+"px";
+
+            	for(i=0;i<aLi.length;i++)
+            	{
+            		
+                    aLi[i].onmouseover=function()
+                    {
+                    	stopMove();
+                    }
+                   
+                    aLi[i].onmouseout=function()
+                    {
+                    	startMove(g_bMoveLeft);
+                    }
+            	}
+
+            	aA[0].onmouseover=function(){
+            		startMove(true);
+            	}
+            	aA[1].onmouseover=function(){
+            		startMove(false);
+            	}
+            	startMove(true);
+
+            	oChk.onclick=function()
+            	{
+                    g_bPause=oChk.getElementsByTagName('input')[0].checked;
+            	}
+
+            	oSpeed.onchange=function(){
+            		g_iSpeed=parseInt(this.value);
+            	}
+
+            	oPauseTime.onchange=function(){
+            		g_iPauseTime=parseInt(this.value);
+            	}
+            
+
+
+            }
+
+            function startMove(bleft)
+            {
+            	g_bMoveLeft=bleft;
+            	if(g_oTimer)
+            	{
+            		clearInterval(g_oTimer);
+            	}
+            	g_oTimer=setInterval(doMove,30);
+            }
+
+
+            function stopMove()
+            {
+            	clearInterval(g_oTimer);
+            	g_oTimer=null;
+            }
+
+            function doMove(){
+            	var oDiv=document.getElementById("roll");
+            	var oUl=oDiv.getElementsByTagName("ul")[0];
+            	var aLi=oUl.getElementsByTagName("li");
+
+            	var l=oUl.offsetLeft;
+            	
+            	if(g_bMoveLeft)
+            	{
+            		l-=g_iSpeed;
+            		if(l<=-oUl.offsetWidth/2)
+            		{
+            			l+=oUl.offsetWidth/2;
+            		}
+            	}
+            	else
+            	{
+            		l+=g_iSpeed;
+            		if(l>=0)
+            		{
+            			l-=oUl.offsetWidth/2;
+            		}
+            	}
+
+            	if(g_bPause)
+            	{
+            		if(Math.abs(1-Math.round(1/aLi[0].offsetWidth)*aLi[0].offsetWidth)<Math.ceil(g_iSpeed/2))
+            		{
+            			stopMove();
+            			g_oTimerOut=setTimeout
+            			(
+                            function()
+                            {
+                            	startMove(g_bMoveLeft);
+                            }, g_iPauseTime
+            			);
+
+            			l=Math.round(1/aLi[0].offsetWidth)*aLi[0].offsetWidth;
+            		}
+            	}
+            
+            	oUl.style.left=l+"px";
+            }
+
+
+        </script>
+
+</head>
+
+<body>
+<div id="go1">
+
+<div id="go2">
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<p1>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+您当前所在位置->首页->最初的梦想</p1><br/>
+<p1>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+点击返回&nbsp;&nbsp;&nbsp;<a href="index.html">首页</a></p1>
+</div>
+<div id="go4">
+
+<span>
+<img src="link4/chengzhang10.jpg">
+&nbsp;&nbsp;&nbsp;&nbsp;年轻张扬的我们，置身青春的驿站，以一腔
+澎湃的热血，用迎接太阳的双手，推开光明与
+希望之门。为了寻找青春岁月的光芒，我们插
+上撒满阳光的羽翼，伴着子夜的钟声出发，洋
+溢澎湃的激情前行，寻找那份独属我们的青春
+的辉煌。也许青春之路漫漫，也许前方充满坎
+坷与荆棘，但我们敢闯敢拼，以理想为经，以行动为纬，
+朝着远方的目标不懈的前行。</br>
+&nbsp;&nbsp;&nbsp;&nbsp;在时光隧道里，用犀利
+的目光将天空钻出蔚蓝，让激动的心似利箭射向苍穹，
+直指无尽的宇宙，坚守到青春最美的尽头。
+希望的钟声敲响着黎明，相信清晨的阳光灿烂，
+相信理想的焰火正旺，相信青春的灯火正亮，
+而有志青年的前途定将一片朗朗。让我们携起手来，
+披着阳光穿行岁月，加快青春的脚步，
+去点亮挂在心头的理想之灯，用挚爱的情怀去高唱一曲青春。<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;过去就像是一本翻不厌的书，让人忍不住的回味再回味；现在就像是一本写满计划和行动的笔记，让人不断检查，完成，再向前；未来，就像一页白纸，等待执着，等待追逐，等待坚持，等待这些美好的努力，最后画下一张灿烂的画。
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span1>——致梦想</span1>
+
+</span>
+</div>
+<div id="go5">
+<em>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;在每个醒来的清晨,曙光将世界点亮。
+我们开启了，梦想的征途，走向那挑战的远方。
+纵使风雨雷电，坚定不移的是我们的目光，
+纵使骇浪惊涛，永不言弃的是我们共同的信仰
+在这场捍卫梦想的战役中，我们只有唯一的誓言，
+无所畏，有所为。所有经历风雨的温柔与坚强
+所有青春无悔的烦恼与成长，所有喊向未来的理想与张扬，
+所有冲出捆绑的热爱与癫狂，在那一刻迸发，向世界宣告：
+我们是骄傲的，自信的！在年轻的战场上，我们亮剑拼博
+我们哭过，笑过，累过，伤过，最终
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+停不下的是奋斗的脚步，歌不尽的是青春的华章。
+而年轻的我们永远坚信，世界将为我们激荡！<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;奋斗是为一个目标去战胜各种困难的过程，这个过程会充满压力痛苦挫折。不错为了一个目标去战胜各种困难的过程，奋斗的目的是为了享受这个过程，而这个过程带给我们的各种快乐，悲伤，愁苦，都会成为我们心智更加成熟的养料，当我们成熟之后再次回过头来，只会心满意足的微笑着面对
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<span1>——致奋斗</span1>
+</em>
+</div>
+<div id="go6">
+</div>
+<div id="go7">
+</div>
+<div id="go3">
+<div id="roll" class="roll">
+    	<a href="javascript:void(0);" class="btn_left"></a>
+    	<a href="javascript:void(0);" class="btn_right"></a>
+    	<div class="wrap">
+    		<ul>
+    			<li><a href="#"><img src="image/mengxiang1.jpg"/></a></li>
+    			<li><a href="#"><img src="image/mengxiang2.jpg"/></a></li>
+    			<li><a href="#"><img src="image/mengxiang3.jpg"/></a></li>
+    			<li><a href="#"><img src="image/mengxiang4.jpg"/></a></li>
+    		</ul>
+    	</div>
+    </div>
+</div>
+</div>
+</body>
+</html>

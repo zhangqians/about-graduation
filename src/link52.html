@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>展示区</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+    body{background:#FFC;}
+    ul{margin:0; padding:0;}
+    li{list-style-type: none;}
+    img{border:0;}
+
+    #playimages.play{
+    	width:1100px;
+    	height:550px;
+    	margin:50px auto 0;
+    	background:#FF9;
+    	font:12px Arial; 
+		
+    }
+
+    #playimages.play .big_pic{
+    	width:800px;
+    	height:400px;
+    	overflow: hidden;
+       
+        background: #222; 
+        margin: 0 auto;
+        
+        position:relative;
+    }
+
+    #playimages.play .big_pic li{
+    	width:600px;
+    	height:400px;
+    	overflow: hidden;
+    	position: absolute;
+    	top:0;
+    	left:90px;
+    	z-index: 0;
+    	background: url(image3/loading.gif) no-repeat center center;
+		
+    }
+    #playimages.play .big_pic .mark_left{
+    	width:200px;
+    	height:320px;
+    	position: absolute;
+    	left:0;
+    	top:0;
+    	background: red;
+    	filter:alpha(opacity:0);
+    	opacity: 0;
+    	z-index: 3000;
+
+    }
+      #playimages.play .big_pic .mark_right{
+    	width:200px;
+    	height:320px;
+    	position: absolute;
+    	left:200px;
+    	top:0;
+    	background: green;
+    	filter:alpha(opacity:0);
+    	opacity: 0;
+    	z-index: 3000;
+
+    }
+    
+    #playimages.play .big_pic .prev{
+    	width:60px;
+    	height:60px;
+    	background: url(image3/btn.gif) no-repeat;
+    	position:absolute;
+    	top:170px; left:0px;
+    	z-index: 3001;
+    	cursor: pointer;
+    	filter:alpha(opacity:0);
+    	opacity: 0;
+    }
+     
+      #playimages.play .big_pic .next{
+    	width:60px;
+    	height:60px;
+    	background: url(image3/btn.gif) no-repeat 0 -60px;
+    	position:absolute;
+    	top:170px; right:0px;
+    	z-index: 3001;
+    	cursor: pointer;
+    	filter:alpha(opacity:0);
+    	opacity: 0;
+    }
+
+     #playimages.play .big_pic .text{
+    	position: absolute; 
+    	left:10px; 
+        top:380px;
+    	z-index: 3000;
+    	bottom:4px;
+    	color:#ccc;
+    }
+     #playimages.play .big_pic .length{
+    	position: absolute; 
+    	right:10px; 
+        top:380px;
+    	z-index: 3000;
+    	bottom:4px;
+    	color:#ccc;
+    }
+     #playimages.play .big_pic .bg{
+     	width:600px;
+     	height:25px;
+     	background: #000;
+     	filter:alpha(opacity:60);
+     	opacity:0.6;
+     	position:absolute;
+     	bottom:0;
+     	left:0;
+     	z-index: 2999;
+     }
+
+
+     #playimages.play .small_pic{
+     	width:1040px;
+     	height:100px;
+     	position: relative;
+     	top:15px;
+     	left:30px;
+     	overflow:hidden;
+     }
+     #playimages.play .small_pic ul{
+     	height:100px;
+     	position: absolute;
+     	top:0;
+     	left:0;
+     }
+     #playimages.play .small_pic ul li{
+     	width:120px;
+     	height: 100px;
+     	float: left;
+     	padding-right:10px;
+     	background: url(image3/loading.gif)no-repeat center center;
+     	cursor: pointer;
+     	filter:alpha(opacity:60);
+     	opacity:0.6;
+     }
+     #playimages.play .small_pic img{
+     	width:120px;
+     	height:100px;
+     }
+	 a
+	 {
+		 color:red;
+		 }
+		 a:hover
+		 {color:blue}
+		span{font-size:20px;}
+		span2{font-size:40px;color:purple;}
+	</style>
+
+	<script type="text/javascript">
+
+    function getStyle(obj, attr){
+      if(obj.currentStyle)
+      	{return obj.currentStyle[attr];}
+      else
+        {return getComputedStyle(obj,false)[attr];}
+    }
+     
+     function getByClass(oParent,sClass){
+        var aEle=document.getElementsByTagName('*');
+        var i=0;
+        var aResult=[];
+
+        for(i=0;i<aEle.length;i++)
+        {
+        	if(aEle[i].className==sClass)
+        		aResult.push(aEle[i]);
+
+        }
+
+        return aResult;
+     }
+   
+
+     function startMove(obj,attr,iTarget)
+     {
+    	clearInterval(obj.timer);
+    	obj.timer=setInterval(function()
+    	{
+    	var iCur=0;
+
+    	    if(attr=="opacity")
+    	  {
+    		iCur=parseInt(parseFloat(getStyle(obj,attr))*100);
+    		
+    	  }
+
+        else 
+        	{
+        		
+        		iCur=parseInt(getStyle(obj,attr));
+            }
+
+   
+        
+    	var iSpeed=(iTarget-iCur)/8;
+    	iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+    	
+   	   
+    	if(iCur==iTarget)
+    	{
+    		clearInterval(obj.timer);
+    	}
+
+    	else
+    	{   if(attr=="opacity")
+            {  
+                 
+            	obj.style.filter="alpha(opacity:"+(iCur+iSpeed)+")";
+            	obj.style.opacity=(iCur+iSpeed)/100;
+            }
+    		else
+    			{
+    				obj.style[attr]=iCur+iSpeed+"px";
+    			}
+    	}
+      },30);
+    }
+
+
+    window.onload=function()
+    {
+    	 var oDiv=document.getElementById('playimages');
+    	 var oBtnPrev=getByClass(oDiv,"prev")[0];
+    	 var oBtnPreNext=getByClass(oDiv,"next")[0];
+    	 var oMarkLeft=getByClass(oDiv,"mark_left")[0];
+    	 var oMarkRight=getByClass(oDiv,"mark_right")[0];
+
+         var oSmallUl=getByClass(oDiv,"small_pic")[0].getElementsByTagName("ul")[0];
+    	 var aSmallLi=oSmallUl.getElementsByTagName("li");
+
+    	 var oBigUl=getByClass(oDiv,"big_pic")[0];
+    	 var aBigLi=oBigUl.getElementsByTagName("li");
+
+         var iNow=0;
+         var iMinZindex=2;
+    	 var i=0;
+
+    	 var oTxt=getByClass(oDiv,"text")[0];
+    	 var aText=["朋友","一辈子","闺蜜","看海","恋空","最美","青春","眺望","时光","玩乐","拥抱"];
+    	 var oLength=getByClass(oDiv,"length")[0];
+
+    	 oSmallUl.style.width=aSmallLi.length*aSmallLi[0].offsetWidth+'px';
+    	 oTxt.innerHTML=aText[0];
+    	 oLength.innerHTML=(iNow+1)+"/"+aBigLi.length;
+      
+       //大图上面左右的按钮显示和隐藏
+       //左边
+    	 oBtnPrev.onmouseover=oMarkLeft.onmouseover=function()
+    	 {startMove(oBtnPrev,"opacity",100);}
+
+    	 oBtnPrev.onmouseout=oMarkLeft.onmouseout=function()
+    	 {startMove(oBtnPrev,"opacity",0);}
+         //右边
+    	oBtnPreNext.onmouseover=oMarkRight.onmouseover=function()
+    	 {startMove(oBtnPreNext,"opacity",100)}
+
+    	 oBtnPreNext.onmouseout=oMarkRight.onmouseout=function()
+    	  {startMove(oBtnPreNext,"opacity",0)}
+         
+         //小图点击，大图显示
+          //小图移入移除透明度的变化
+         for(i=0;i<aSmallLi.length;i++)
+         {    
+         	  aSmallLi[i].index=i;
+         	  aSmallLi[i].onmouseover=function()
+         	  { 
+               
+                startMove(this,"opacity",100);}
+         	  aSmallLi[i].onmouseout=function()
+         	  {
+               
+         	  	if(this.index!=iNow)
+         	  	{
+         	  		startMove(this,"opacity", 60);
+         	  	}
+         	  }
+
+         	  aSmallLi[i].onclick=function()
+         	  {
+         	  	if(this.index==iNow)return;
+         	  	iNow=this.index;
+                
+         	  	tab();
+         	  }
+              //小图点击切换大图
+         	  function tab()
+         	  {
+         	  	for(i=0;i<aSmallLi.length;i++)
+         	  	 {startMove(aSmallLi[i],"opacity",60);}
+         	      startMove(aSmallLi[iNow],"opacity",100);
+         	      aBigLi[iNow].style.zIndex=iMinZindex++;
+         	      aBigLi[iNow].style.height=0;
+         	      oTxt.innerHTML=aText[iNow];
+         	      oLength.innerHTML=(iNow+1)+"/"+aBigLi.length;
+
+         	      startMove(aBigLi[iNow],"height",oBigUl.offsetHeight);
+                  //小图UL的移动
+         	      if(iNow==0)
+         	      	{startMove(oSmallUl,"left",0)}
+         	      else if(iNow==aSmallLi.length-1)
+         	      {
+         	      	startMove(oSmallUl,"left",-(iNow-2)*aSmallLi[0].offsetWidth);
+         	      }
+         	      else
+         	      {
+                     startMove(oSmallUl,"left",-(iNow-1)*aSmallLi[0].offsetWidth);
+         	      }
+
+         	  }
+
+         	  oBtnPrev.onclick=function()
+         	  {
+         	  	iNow--;
+         	  	if(iNow==-1)//到第一张时从最后一张再开始
+         	  	 {iNow=aSmallLi.length-1;}
+
+         	  	tab();
+         	  }
+         	  oBtnPreNext.onclick=function()
+         	  {
+         	  	iNow++;
+         	  	if(iNow==aSmallLi.length)//过界后使他从0开始
+         	  	 {iNow=0;}
+
+         	  	tab();
+         	  }
+         }
+
+
+       
+    }
+	</script>
+</head>
+<body>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span>您当前所在位置->青春修炼手册->展示区</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<span2>展示区</span2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+&nbsp;&nbsp;&nbsp;
+<span>点击返回&nbsp;&nbsp;<a href="link5.html">青春修炼手册</a></span>
+<div id="playimages" class="play">
+
+	<ul class="big_pic">
+		<div class="prev"></div>
+		<div class="next"></div>
+
+		<div class="text">文字说明</div>
+		<div class="length">图片的数量</div>
+
+		<a class="mark_left" href="javascript:void(0);"></a>
+		<a class="mark_right" href="javascript:void(0);"></a>
+		<div class="bg"></div>
+
+		<li style="z-index:1;"><img src="image3/1.jpg" alt="1"/></li>
+		<li><img src="image3/2.jpg" alt="2" /></li>
+		<li><img src="image3/3.jpg" alt="3" /></li>
+		<li><img src="image3/4.jpg" alt="4" /></li>
+		<li><img src="image3/5.jpg" alt="5" /></li>
+		<li><img src="image3/6.jpg" alt="6" /></li>
+        <li><img src="image3/7.jpg" alt="2" /></li>
+        <li><img src="image3/8.jpg" alt="3" /></li>
+        <li><img src="image3/9.jpg" alt="4" /></li>
+        <li><img src="image3/10.jpg" alt="5" /></li>
+        <li><img src="image3/11.jpg" alt="6" /></li>
+	</ul>
+	<div class="small_pic">
+		<ul style="width:1080px;">
+		<li style="filter:100; opacity:1;"><img src="image3/1.jpg" alt="1" /></li>
+		<li><img src="image3/2.jpg" alt="2" /></li>
+		<li><img src="image3/3.jpg" alt="3" /></li>
+		<li><img src="image3/4.jpg" alt="4" /></li>
+		<li><img src="image3/5.jpg" alt="5" /></li>
+		<li><img src="image3/6.jpg" alt="6" /></li>
+        <li><img src="image3/7.jpg" alt="2" /></li>
+        <li><img src="image3/8.jpg" alt="3" /></li>
+        <li><img src="image3/9.jpg" alt="4" /></li>
+        <li><img src="image3/10.jpg" alt="5" /></li>
+        <li><img src="image3/11.jpg" alt="6" /></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

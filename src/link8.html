@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+
+<style type="text/css">  
+
+
+span
+{
+	font-size:20px;
+	font-style:italic;
+	color:purple;
+	}
+	span11
+{
+	font-size:1.2em;;
+	color:purple;
+    line-height:1.8em;
+	}
+	span1
+	{
+		font-size:18px;
+		}
+	a{color:red;}
+	a:hover{color:blue;}
+#demo {  
+background: #FFF;  
+overflow:hidden;  
+
+height: 1000px;  
+text-align: center;  
+float: left; 
+width:45% 
+
+}  
+
+#demo img {  
+  
+display: block;  
+}  
+
+#demos {  
+background:url(link8/xiugai.jpg) no-repeat center;
+overflow:hidden;  
+ border-bottom:2px dashed black; 
+width:50%;
+height: 620px;  
+text-align: center;  
+float: right; 
+margin-left:0px;
+
+} 
+#yiding
+{
+	width:50%;
+height: 400px; 
+float:right;
+margin-top:10px; 
+padding-left:30px;
+
+	} 
+#yiding img{
+		float:right;
+		margin-left:5px;
+		margin-right:50px;
+		margin-top:10px;
+		margin-bottom:10px;
+	}
+</style>  
+<div id="demo"> 
+ <div id="demo1"> 
+  <a href="#"><img src="link8/jiao.jpg" border="0" /></a> 
+  <a href="#"><img src="link8/jiao1.jpg" border="0" /></a> 
+  <a href="#"><img src="link8/jiao3.jpg" border="0" /></a> 
+  <a href="#"><img src="link8/jiao6.jpg" border="0" /></a> 
+  <a href="#"><img src="link8/jiao7.jpg" border="0" /></a> 
+  <a href="#"><img src="link8/jiao8.jpg" border="0" /></a> 
+  <a href="#"><img src="link8/jiao9.jpg" border="0" /></a> 
+  <a href="#"><img src="link8/jiao11.jpg" border="0" /></a> 
+  <a href="#"><img src="link8/jiao5.jpg" border="0" /></a> 
+  <a href="#"><img src="link8/jiao15.jpg" border="0" /></a> 
+   </div>  
+   <div id="demo2">
+   </div>  
+    </div>
+
+<script>     
+   var speed=10; 
+         var tab=document.getElementById("demo");     
+		 var tab1=document.getElementById("demo1");    
+		  var tab2=document.getElementById("demo2");      
+		  tab2.innerHTML=tab1.innerHTML; 
+		      function Marquee(){      if(tab2.offsetTop-tab.scrollTop<=0)
+			       tab.scrollTop-=tab1.offsetHeight 
+				        else{      tab.scrollTop++     }     }      
+						var MyMar=setInterval(Marquee,speed);      
+						tab.onmouseover=function() {clearInterval(MyMar)};
+						 tab.onmouseout=function() {MyMar=setInterval(Marquee,speed)};      
+						    
+							 </script>
+</head>
+
+<body>
+<div id="demos">
+<span1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+您当前所在位置->首页->胶卷里的时光</span1>
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<span1>点击返回&nbsp;&nbsp;&nbsp;<a href="index.html">首页</a></span1><br/><br/><br/><br/><br/>
+
+</span>
+</br></br></br></br></br></br></br></br></br>
+<span11>
+<h2 style="color:red;">关于梦想*关于希望</h2>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+在人生漫长的岁月中，我们总会遇到，各种各样的困难和挫折。这时我们首先想到的就是，寻找一份希望，或是得到一份有力的帮助，让自己有充足的精神。足够的理由和信心生活下去，从而克服困难，战胜挫折，赢得生活的美满幸福。我们的生活中，人是不能没有希望的。一旦希望破灭，人的精神便会崩溃。而只要一丝希望尚存，虽然未必能够实现，但在充满希望的过程中，我们得到了，希望和鼓励而精神倍增，平添许多生活的勇气。对于一时的生活烦恼，我们不必太认真。我们要寻找一些让自己快乐的理由，成长得意义在此。
+</span11>
+</div>
+<div id="yiding">
+<img src="link8/shouxian.jpg">
+<span style="color:black">青春就像一场大雨，就算感冒也想要再淋一场。</span><br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span style="color:red">——九把刀</span>
+</div>
+</body>
+</html>

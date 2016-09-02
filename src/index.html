@@ -1,0 +1,753 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>首页</title>
+<style type="text/css">
+em{
+line-height:4em;
+text-align:left;
+font-size:16px;
+color:purple;
+}
+p{
+
+line-height:40px;
+text-align:left;
+font-size:16px;
+}
+p1{
+
+line-height:40px;
+text-align:right;
+font-size:16px;
+}
+span{
+ color:purple;
+font-style:italic;
+  font-size:36px;
+}
+
+#header{
+width:100%;
+height:200px;
+background:url(index/hua1.jpg)  no-repeat;
+text-transform:lowercase;
+
+}
+
+#liuyanban
+{
+position:absolute;
+top:750px;
+left:120px;
+
+}
+#logo{
+float:left;
+height:200px;
+width:400px;
+
+
+}
+
+
+.sidebar{
+float:left;
+width:230px;
+background:#FFCCFF;
+background:url(index/banzi1.jpg) repeat-y;
+}
+.sidebar ul{
+margin:0;
+padding:0;
+list-style:none;
+line-height:normal;
+}
+
+
+.sidebar ul li {
+ padding:6px 0 0px 0px;
+ 
+}
+.sidebar ul li a{
+text-decoration:none;
+font-size:25px;
+color:red;
+
+}
+.sidebar ul li a:hover{
+
+}
+
+
+
+#leftbar{
+width:150px;
+height:750px;
+padding:0 0 0px 50px;
+float:right;
+}
+
+#liuyan
+{
+width:50%;
+height:360px;
+float:left;
+background:url(index/liuyanban.jpg) no-repeat;
+background-size:cover;
+margin-left:5px;
+margin-top:25px;
+border-right:2px dashed black;
+}
+#biye
+{
+width:50%;
+height:350px;
+float:right;
+
+
+}
+a{
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+
+.box{
+	height: 350px;
+	width: 500px;
+
+}
+.main{
+	height: 294px;
+	padding-top: 8px;
+	width: 490px;
+	
+	margin:0 auto;
+
+}
+.main-window{
+	padding: 0 7px ;
+	width: 490px;
+	height: 245px;
+	position: relative;
+	overflow: hidden;  
+
+}
+.main-img{
+	
+	position: relative;
+	top: 0px;
+
+}
+.main-img img{
+	width: 460px;
+	height: 245px;
+}
+.navl li{
+	float:left;
+	text-align:center;
+	
+    width: 108px;
+	height:40px;
+	font-size:28px;
+	text-decoration:underline;
+}
+.navl a{
+	height: 49px;
+	height: 108px;
+	line-height: 49px;
+}
+.button{
+	width: 108px;
+	
+}
+.b0{
+	width: 30px;
+	display:none;
+
+	
+}
+.b5{
+	width: 30px;
+	display:none;
+	
+	
+}
+
+
+
+
+
+
+#jiayou
+{
+width:45%;
+height:350px;
+float:left;
+
+
+}
+#nvli
+{
+width:35%;
+height:360px;
+float:right;
+
+margin-right:5px;
+margin-top:25px;
+}
+#chun
+{
+	width:80%;
+	height:750px;
+
+	float:left;
+	margin:5px 0px 5px 5px;
+	}
+#clock{width:36%;height:130px;float:right;}
+#suosuo{width:36%;height:50px;float:right;margin-top:5px;}
+img{border:none;}
+        .date {width:400px; height:130px; margin:0 auto 0;position:relative;}
+        .date .year{text-align: center; padding-top: 10px;}
+        .date .time{text-align: center;padding:20px 0;} 
+        .date img{position:relative;}
+        .pos2{margin-left:10px;}
+        .num{width:25px;}
+        .num2{width:38px;}
+		
+		
+		
+		
+		#nav {line-height: 24px; list-style-type: none;  }
+#nav a {display: block; width: 80px; text-align:left;}
+#nav a:link {color:black; text-decoration:none;}
+#nav a:visited {color:black;text-decoration:none;}
+#nav a:hover {color:black;text-decoration:none;font-weight:bold;}
+#nav li {float: left; width: 80px;}
+#nav li a:hover{background-color:#FF9;}
+#nav li ul {line-height: 27px; list-style-type: none;text-align:left;left: -999em; width: 50px; position: absolute;}
+#nav li ul li{float: left;}
+#nav li ul a{display: block; width: 156px;text-align:left;padding-left:4px;}
+#nav li ul a:link { text-decoration:none;}
+#nav li ul a:visited {color:black;text-decoration:none;}
+#nav li ul a:hover {color:red;text-decoration:none;font-weight:normal;}
+#nav li:hover ul {left: auto;}
+#nav li.sfhover ul {left: auto;}
+#content {clear: left;}
+
+
+.btn32
+{
+	width:211px;
+	height:49px;
+	line-height:24px;
+	font-size:24px;
+	color:#999;	
+	background:url(index/bg32.jpg) no-repeat left top;
+	padding:0px 22px 2px 0px;
+	
+}
+</style>
+<script type="text/javascript">
+            var timer=null;
+        	var aNow=null;
+
+        	var g_aImg=[];
+        	var g_oImgWeek=null;
+        	var g_aWeekName=[
+        	     "one",
+        	     "two",
+        	     "three",
+        	     "four",
+        	     "five",
+        	     "six",
+        	     "seven"
+
+        	];
+
+		window.onload=function(){
+			js1();
+			js2();
+			js3();
+		};
+        function js1(){
+          var oDiv=document.getElementById("clock");
+          var aImg=oDiv.getElementsByTagName("img");
+          var i=0;
+
+          for(i=0;i<aImg.length;i++){
+          	if(!isNaN(parseInt(aImg[i].alt))){
+          		g_aImg.push(aImg[i]);
+          	}
+          }
+
+          g_aImg.push(aImg[aImg.length-1]);
+          aNow=getTimeArray();
+
+          for(i<0;i<g_aImg.length;i++)
+          {
+          	g_aImg[i].now=-1;
+          }
+
+          checkSwitch();
+
+          setInterval(checkSwitch,1000);
+          checkSwitch();
+
+        }
+
+        var g_imgHeigth=0;
+        var g_iTarget=0;
+        var g_iMax=0;
+
+        function checkSwitch(){
+        	var i=0;
+
+        	aNow=getTimeArray();
+
+        	g_imgHeigth=g_aImg[0].offsetHeight;
+        	g_iTarget=-g_imgHeigth;
+        	g_iMax=g_imgHeigth;
+
+        	timer=setInterval(doSwitch,30);
+        }
+
+        function doSwitch(){
+        	bEnd=false;
+        	var i=0;
+
+        	g_imgHeigth-=5;
+        	if(g_imgHeigth<=g_iTarget)
+        	{
+        		g_imgHeigth=g_iTarget;
+        		bEnd=true;
+        	}
+        	for(i=0;i<g_aImg.length;i++)
+        	{
+        		if(g_aImg[i].now!=aNow[i])
+        		{
+        			if(g_imgHeigth>0)
+        			{
+        				g_aImg[i].style.height=g_imgHeigth+'px';
+				        g_aImg[i].style.top=-(g_iMax-g_imgHeigth)/2+'px';
+        			}
+        			else
+        			{
+        				if(i==g_aImg.length-1)
+				{
+					g_aImg[i].src="images1/" + g_aWeekName[aNow[i]] + ".png";
+				}
+				else
+				{
+					g_aImg[i].src="images1/" + aNow[i] + ".png";
+				}
+				
+				g_aImg[i].style.height=-g_imgHeigth+'px';
+				g_aImg[i].style.top=-(g_iMax+g_imgHeigth)/2+'px';
+        			}
+        		}
+        	}
+        	if(bEnd)
+	    {
+		for(i=0;i<g_aImg.length;i++)
+		{
+			g_aImg[i].now=aNow[i];
+		}
+		
+		clearInterval(timer);
+	    }
+     }
+     function toDouble(iNum)
+    {
+	if(iNum<10)
+	{
+		return '0'+iNum;
+	}
+	else
+	{
+		return ''+iNum;
+	}
+    }
+    function getTimeArray()
+   {
+	var oDate=new Date();
+	var aNumber=new Array();
+	
+	var iYear=oDate.getYear();
+	var iMonth=oDate.getMonth();
+	var iDay=oDate.getDate();
+	var iHour=oDate.getHours();
+	var iMin=oDate.getMinutes();
+	var iSec=oDate.getSeconds();
+	var iWeek=(oDate.getDay()+6)%7;
+	
+	if(iYear<1900)
+	{
+		iYear+=1900;
+	}
+
+	var str=''+(iYear)+toDouble(iMonth+1)+toDouble(iDay)+toDouble(iHour)+toDouble(iMin)+toDouble(iSec)+iWeek;
+	var aChar=str.split('');
+	
+	for(i=0;i<aChar.length;i++)
+	{
+		aNumber[i]=parseInt(aChar[i]);
+	}
+	
+	return aNumber;
+}
+
+function js2() {
+	function getId (myid) {
+        return document.getElementById(myid);
+    };
+    function getClass (myclass) {
+        return document.getElementsByClassName(myclass);
+    };
+    function getName (myname) {
+        return document.getElementsByTagName(myname);
+    };
+    var num = new Array("0","-249","-498","-747")
+    var mybt={
+    	"num":0, //记录上一次点击按钮位置 个
+        "position":0,  //记录当前位置 px
+    	"start":function(){
+    		for (var i = 0; i < getClass("button").length; i++) {
+	    		(function(e){
+	    			getClass("button")[e].onmouseover=function(){
+	    				if (mybt.num < e) {
+                            go.bottom(e)
+                        }else if (mybt.num > e) {
+                            go.top(e)
+                        };
+	    			}
+	    		})(i)
+    		};
+            getClass("goleft")[0].onmouseover=function(){
+                var e = mybt.num - 1
+                if (e < 0) {
+                    e = 3
+                   
+                    go.bottom(e)
+                }
+               
+                go.top(e)
+            }
+            getClass("goright")[0].onmouseover=function(){
+                var e = mybt.num + 1
+                if (e > 3) {
+                    e = 0
+                   
+                    go.top(e)
+                }
+               
+                go.bottom(e)
+            }
+            
+    	}
+    }
+    mybt.start()
+    var go={
+        "n":2,
+        "num":0, //记录需要到达的位置 px
+        "position":0, //记录当前的位置 px
+        "speed" :function(){
+           var n = Math.abs(go.num)
+           if (n>249) { //距离太远就加快速度
+            go.n = 4
+           }else if (n>498) {
+            go.n = 5
+           }else{
+            go.n = 2
+           }
+        },
+        "bottom":function(e){
+            go.num = (mybt.num - e) * 249
+            go.speed()
+            setTimeout(function(){go.recursion(e);},1)
+        },
+        "recursion":function(e){
+            if (mybt.position > num[e]) {
+                mybt.position -=go.n
+                getId("main-img").style.top = mybt.position + "px"
+                go.bottom(e)
+            }else{
+                go.clean(e) //清除按钮效果
+                return  mybt.num = e
+            }
+        },
+        "top":function(e){
+            go.num = (e - mybt.num) * 249
+            go.speed()
+            setTimeout(function(){go.recursiont(e);},1)
+        },
+        "recursiont":function(e){
+            if (mybt.position < num[e]) {
+                mybt.position +=go.n
+                getId("main-img").style.top = mybt.position + "px"
+                go.top(e)
+            }else{
+                go.clean(e)
+                return mybt.num = e
+            }
+        },
+        "clean":function(e){
+            for (var i = 0; i < getClass("button").length; i++) {
+                getClass("button")[i].style.background="url(comm_bg.png) -31px -72px"
+                getClass("button")[i].style.color="white"
+            }; //清除其他按钮
+            getClass("button")[e].style.background="url(comm_bg.png)  0 -122px" //附加当前按钮效果
+            getClass("button")[e].style.color="black"
+        } 
+    }
+}
+		
+		
+		function js3() {
+ var sfEls = document.getElementById("nav").getElementsByTagName("li");
+ for (var i=0; i<sfEls.length; i++) {
+  sfEls[i].onmouseover=function() {
+   this.className+=(this.className.length>0? " ": "") + "sfhover";
+  }
+  sfEls[i].onMouseDown=function() {
+   this.className+=(this.className.length>0? " ": "") + "sfhover";
+  }
+  sfEls[i].onMouseUp=function() {
+   this.className+=(this.className.length>0? " ": "") + "sfhover";
+  }
+  sfEls[i].onmouseout=function() {
+   this.className=this.className.replace(new RegExp("( ?|^)sfhover\\b"),
+  "");
+  }
+ }
+}
+function rec()
+{    
+     var mychar="提交成功！";
+	alert(mychar);
+	}
+        </script>
+      
+         
+         
+</head>
+
+<body>
+<embed src="fan.mp3" autostart="true" hidden="true">
+<div id="header">
+<div id="logo">
+
+    
+<span>&nbsp;&nbsp;毕 业 季 @ <br/><br/>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;不 说 再 见<br/><br/>
+		 &nbsp; &nbsp; --BY. WEB小鬼
+		 </span>
+         
+</div>
+
+<div id="clock" class="date">
+    	<div class="year">
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img class="num" src="images1/0.png" alt="0"/>
+
+            <img src="images1/year.png" alt="year" />
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img class="num" src="images1/0.png" alt="0"/>
+
+             <img src="images1/month.png" alt="month" />
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img src="images1/seven.png" alt="day" />
+    	</div>
+    	<div class="time">
+    		
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img src="images1/sign.png" alt="sign" />
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img src="images1/sign.png" alt="sign" />
+
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img class="num" src="images1/0.png" alt="0"/>
+    		<img class="pos2" src="images1/week.png" alt="week" />
+    		<img class="num2" src="images1/one.png" alt="one" />
+    
+    	</div>
+    </div>
+    <div id="suosuo">
+          &nbsp;&nbsp;&nbsp;
+		 <input class="btn32" type="button" value="我的毕业季..">
+         <p1>您当前位置->首页</p1>
+         </div>
+
+</div>
+<div id="page">
+<div id="leftbar" class="sidebar">
+<ul id="nav">
+<br/><br/><br/>
+<li><a href="#">首页</a>
+<ul>
+<li><a href="link0.html">关于我们</a></li>
+
+</ul>
+</li>
+
+</li>
+
+
+<br/><br/><br/><br/><br/><br/>
+<li><a href="#">青春</a>
+<ul>
+<li><a href="link1.html">雨的印记</a></li><br/>
+<li><a href="link5.html">青春修炼手册</a></li>
+</ul>
+</li>
+
+
+
+<br/><br/><br/><br/><br/><br/><br/>
+<li><a href="#">离别</a>
+<ul>
+<li><a href="link2.html">那些年</a></li><br/>
+<li><a href="link6.html">无言的秘密</a></li>
+</ul>
+</li>
+
+
+
+<br/><br/><br/><br/><br/><br/>
+<li><a href="#">收获</a>
+<ul>
+<li><a href="link3.html">烟雨季节</a></li><br/>
+<li><a href="link7.html">书香里的魔法</a></li>
+</ul>
+</li>
+
+
+
+<br/><br/><br/><br/><br/><br/>
+<li><a href="#">未来</a>
+<ul>
+<li><a href="link4.html">最初的梦想</a></li><br/>
+<li><a href="link8.html">胶卷里的时光</a></li>
+</ul>
+</li>
+
+
+</ul>
+</div>
+</div>
+<div id="chun" >
+<div id="jiayou">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span2 style="font-size:25px;color:red;">我们</span2>相逢在陌生时，我们分手在熟悉后。明天，
+我们要到生活的星图上找寻自己的新位置，让我们
+用自己闪烁的星光相互问讯、表情达意。你走了，
+我来送行。<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;你的路，是我用目光铺成，想你时，我就站在
+这里眺望，夜里，我会做个好梦。如果，我将来与
+你告别，希望你也用同样的目光，送我到遥远。我
+们分离了，但你的姿容依旧在我的心坎里保存，有
+如韶光留下的依稀幻影，愉悦着我惆怅的心灵。<br/>
+<h2>
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;——再见，那些年
+</h2>
+</p>
+</div>
+<div id="biye">
+<div class="box">
+    		<div class="main">
+    			<div class="main-window">
+    				<ul class="main-img" id="main-img">
+    				<li>
+    					<a href="#">
+    						<img src="index/3.jpg" alt="" />
+    					</a>
+    				</li>
+    				<li>
+    					<a href="#">
+    						<img src="index/1.jpg" alt="" />
+    					</a>
+    				</li>
+    				<li>
+    					<a href="#">
+    						<img src="index/2.jpg" alt="" />
+    					</a>
+    				</li>
+    				<li>
+    					<a href="#">
+    						<img src="index/4.jpg" alt="" />
+    					</a>
+    				</li>
+    			</ul>
+    			</div>
+    			<ul class="navl">
+                
+    				
+    				<li>
+    					<a class="button" href="javascript:">
+    						青春
+    					</a>
+    				</li>
+    				<li>
+    					<a class="button" href="javascript:">
+    						离别
+    					</a>
+    				</li>
+    				<li>
+    					<a class="button" href="javascript:">
+    						收获
+    					</a>
+    				</li>
+    				<li>
+    					<a class="button" href="javascript:">
+    						未来
+    					</a>
+    				</li>
+    				<li>
+    					<a class="goright b5 " href="javascript:"></a>
+    				</li>
+                    <li>
+    					<a class="goleft b0" href="javascript:"></a>
+    				</li>
+    			</ul>
+    		</div>
+    	</div>
+
+
+</div>
+<div id="liuyan">
+<div id="liuyanban">
+<form>
+毕业留言板：
+<textarea rows="10" cols="25">请在这里留言。。。</textarea><br/><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="reset" value="取消">&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="submit" value="提交" onclick="rec()">
+</form>
+</div>
+</div>
+
+<div id="nvli">
+<br/><br/>
+<em>徐志摩：“你记得也好，最好你忘掉。”<br/>
+梁实秋：“你去，我不送你;你来，无论<br/>
+多大风多大雨，我要去接你。”</br>
+舒婷：“仿佛永远分离，却又终身相依。”<br/>
+是的。爱从来不知道自己的深度，直到别离的时刻。
+</em>
+</div>
+
+
+
+
+</div>
+
+</body>
+</html>
